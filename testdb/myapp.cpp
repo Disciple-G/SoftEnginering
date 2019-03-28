@@ -23,6 +23,7 @@ void MyApp::run() {
 
   try {
     user = new User(this);
+    user->regist();
 
     for (;;) {
       SetConsoleTextAttribute(hd, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);

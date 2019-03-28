@@ -11,6 +11,7 @@ class User : public QObject
 public:
   explicit User(QObject *parent = nullptr);
 
+  void regist();
   void checkIn();
   void checkOut();
   void turnOn(int tem);
@@ -25,8 +26,6 @@ private:
 
   int usr_id;
   int room_id;
-
-  void addNewUser();
 };
 
 #endif // USER_H
