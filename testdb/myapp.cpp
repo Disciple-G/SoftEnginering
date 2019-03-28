@@ -1,5 +1,5 @@
 #include "myapp.h"
-#include "hotel.h"
+#include "user.h"
 
 #include <QThread>
 #include <QDebug>
@@ -12,7 +12,7 @@ MyApp::MyApp(QObject *parent) :
 {}
 
 void MyApp::run() {
-  Hotel *hotel;
+  User *user;
 
   HANDLE hd = GetStdHandle(STD_OUTPUT_HANDLE);
   WORD old_clr_attr;
@@ -22,7 +22,8 @@ void MyApp::run() {
   old_clr_attr = buf_info.wAttributes;
 
   try {
-    hotel = new Hotel(this);
+    user = new User(this);
+    user->regist();
 
     for (;;) {
       SetConsoleTextAttribute(hd, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_INTENSITY);
@@ -31,29 +32,29 @@ void MyApp::run() {
       std::cin >> cmd;
 
       if (cmd == "in") {
-        hotel->checkIn();
+        user->checkIn();
       }
       else if (cmd == "out") {
-        hotel->checkOut();
+        user->checkOut();
       }
       else if (cmd == "on") {
         int temp_init;
         std::cin >> temp_init;
-        hotel->turnOn(temp_init);
+        user->turnOn(temp_init);
       }
       else if (cmd == "off") {
-        hotel->turnOff();
+        user->turnOff();
       }
       else if (cmd == "tem") {
         int temp;
         std::cin >> temp;
-        hotel->setTemp(temp);
+        user->setTemp(temp);
       }
       else if (cmd == "stt") {
-        hotel->getState();
+        user->getState();
       }
       else if (cmd == "bil") {
-        hotel->getBilling();
+        user->getBilling();
       }
       else {
         SetConsoleTextAttribute(hd, FOREGROUND_RED | FOREGROUND_INTENSITY);

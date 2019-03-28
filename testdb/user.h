@@ -1,16 +1,17 @@
-#ifndef HOTEL_H
-#define HOTEL_H
+#ifndef USER_H
+#define USER_H
 
 #include <QObject>
 #include <QSqlDatabase>
 
 
-class Hotel : public QObject
+class User : public QObject
 {
   Q_OBJECT
 public:
-  explicit Hotel(QObject *parent = nullptr);
+  explicit User(QObject *parent = nullptr);
 
+  void regist();
   void checkIn();
   void checkOut();
   void turnOn(int tem);
@@ -23,6 +24,8 @@ public:
 private:
   QSqlDatabase db;
 
+  int usr_id;
+  int room_id;
 };
 
-#endif // HOTEL_H
+#endif // USER_H
