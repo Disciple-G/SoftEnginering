@@ -61,3 +61,8 @@ void Hotel::getBilling()
 {
 
 }
+
+void Hotel::addNewUser()
+{
+  QSqlQueryModel *model = new QSqlQueryModel;
+}

@@ -23,6 +23,7 @@ public:
 private:
   QSqlDatabase db;
 
+  void addNewUser();
 };
 
 #endif // HOTEL_H
